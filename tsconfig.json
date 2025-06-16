@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "lib": ["ES2015", "DOM"], // 确保包含ES2015或更高版本
+    "paths": {
+      "@/*": ["src/*"]
+    },
+    "allowJs": true,
+    "typeRoots": ["./node_modules/@types", "./typings",  "./node_modules/miniprogram-api-typings"], // 包含声明文件,
+//    "types": ["miniprogram-api-typings"],
+    "include": [
+      "src",
+      "async-import.d.ts",
+      "async-component.d.ts"
+    ], // 确保 src 文件夹被 TypeScript 编译器识别
+    "allowSyntheticDefaultImports": true
+  }
+}

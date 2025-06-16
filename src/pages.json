@@ -1,0 +1,33 @@
+{
+  //  "entryPagePath": "game-modules/choice-games/memory-snapshot/memory-snapshot",
+  "easycom": {
+    "autoscan": true,
+    // 注意一定要放在custom里，否则无效，https://ask.dcloud.net.cn/question/131175
+    "custom": {
+      "ui-(.*)": "@/components/ui/ui-$1/ui-$1.vue"
+    }
+  },
+  "pages": [
+    // entryPagePath 不存在的情况下， pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+    {
+      "path": "pages/index/index",
+      "style": {
+        "navigationStyle": "custom"
+      }
+    }
+  ],
+
+  "globalStyle": {
+    "restartStrategy": "homePage",
+    "backgroundColor": "@backgroundColor"
+    //    "rpxCalcBaseDeviceWidth": 500 //  避免使用 ipad 导致过大 TODO 但是 IDE 提示不存在该属性 ~
+  },
+  "condition": {
+    //模式配置，仅开发期间生效
+    "current": 0,
+    //当前激活的模式(list 的索引项)
+    "list": [
+    
+    ]
+  }
+}
