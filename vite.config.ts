@@ -30,11 +30,12 @@ export default defineConfig({
         'border-color': false
       },
       // 需要先安装 `@ast-grep/napi`, 安装完成后再启用下方配置
-      jsAstTool: 'ast-grep',
+      // jsAstTool: 'ast-grep',
       htmlMatcher: (file) => {
         if (file.indexOf('wxcomponents') === 0) {
           return false
         }
+        return /.+\.(?:(?:wx|ax|jx|ks|tt|q|ty|xhs)ml|swan)$/.test(file)
       }
       // mangle: true, // 压缩混淆
     })
