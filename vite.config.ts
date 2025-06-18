@@ -3,7 +3,8 @@ import { defineConfig } from 'vite'
 import Optimization from '@uni-ku/bundle-optimizer'
 import { UnifiedViteWeappTailwindcssPlugin as uvtw } from 'weapp-tailwindcss/vite'
 import postcssPlugins from './postcss.config'
-
+import { getDefaultOptions } from 'weapp-tailwindcss/defaults'
+const { htmlMatcher: defaultHtmlMatcher } = getDefaultOptions()
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -35,17 +36,17 @@ export default defineConfig({
         if (file.indexOf('wxcomponents') === 0) {
           return false
         }
-        return /.+\.(?:(?:wx|ax|jx|ks|tt|q|ty|xhs)ml|swan)$/.test(file)
+        return defaultHtmlMatcher(file)
       }
       // mangle: true, // 压缩混淆
     })
   ],
-  build:{
+  build: {
     minify: 'esbuild',
     sourcemap: true,
   },
   esbuild: {
-    drop: process.env.NODE_ENV  === 'production' ? ['console', 'debugger'] : [],
+    drop: process.env.NODE_ENV === 'production' ? ['console', 'debugger'] : [],
   },
   resolve: {
   },
